@@ -1,0 +1,407 @@
+/* ============================================
+   CV - Eliezer David Salazar
+   styles.css
+   ============================================ */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --sidebar-bg: #2d2d2d;
+  --sidebar-text: #e8e8e8;
+  --sidebar-accent: #a0b4c8;
+  --sidebar-heading: #ffffff;
+  --sidebar-muted: #b0b0b0;
+  --main-bg: #ffffff;
+  --main-text: #2c2c2c;
+  --main-heading: #1a1a1a;
+  --accent: #3a6ea5;
+  --accent-light: #e8f0f8;
+  --border: #e0e0e0;
+  --tag-bg: #eef3f8;
+  --tag-text: #2d5a8e;
+  --font: 'Inter', sans-serif;
+  --sidebar-width: 280px;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font);
+  background: #f0f2f5;
+  color: var(--main-text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   Layout
+   ============================================ */
+
+.cv-wrapper {
+  max-width: 21cm;
+  min-height: 29.7cm;
+  margin: 2rem auto;
+  background: var(--main-bg);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: row;
+}
+
+/* ============================================
+   Sidebar
+   ============================================ */
+
+.sidebar {
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  padding: 2.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar-name {
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  padding-bottom: 1.75rem;
+}
+
+.sidebar-name h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--sidebar-heading);
+  line-height: 1.3;
+  margin-bottom: 0.5rem;
+}
+
+.sidebar-name .job-title {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--sidebar-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+}
+
+/* Sidebar sections */
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.sidebar-section h2 {
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--sidebar-accent);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
+}
+
+/* Contact list */
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.8rem;
+  color: var(--sidebar-text);
+  word-break: break-word;
+}
+
+.contact-list li i {
+  color: var(--sidebar-accent);
+  font-size: 0.85rem;
+  margin-top: 0.15rem;
+  min-width: 16px;
+  text-align: center;
+}
+
+.contact-list li a {
+  color: var(--sidebar-text);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.contact-list li a:hover {
+  color: var(--sidebar-accent);
+}
+
+/* Skills */
+.skills-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.skill-category-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--sidebar-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.skill-tag {
+  background: rgba(255,255,255,0.1);
+  color: var(--sidebar-text);
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  border: 1px solid rgba(255,255,255,0.15);
+  white-space: nowrap;
+}
+
+/* Languages */
+.lang-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.lang-list li {
+  font-size: 0.8rem;
+  color: var(--sidebar-text);
+}
+
+.lang-list li span {
+  color: var(--sidebar-muted);
+  font-size: 0.75rem;
+  display: block;
+}
+
+/* ============================================
+   Main Content
+   ============================================ */
+
+.main-content {
+  flex: 1;
+  padding: 2.5rem 2.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+/* Summary */
+.summary-text {
+  font-size: 0.875rem;
+  color: var(--main-text);
+  line-height: 1.75;
+}
+
+/* Experience & Education entries */
+.entry {
+  margin-bottom: 1.4rem;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.2rem;
+  flex-wrap: wrap;
+}
+
+.entry-company {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--main-heading);
+}
+
+.entry-period {
+  font-size: 0.75rem;
+  color: #888;
+  white-space: nowrap;
+  padding-top: 0.1rem;
+}
+
+.entry-role {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
+}
+
+.entry-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.entry-list li {
+  font-size: 0.8rem;
+  color: var(--main-text);
+  line-height: 1.55;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.entry-list li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 0.7rem;
+  top: 0.05em;
+}
+
+/* Tech stack badges for projects */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.tech-badge {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  border: 1px solid #c8d9ed;
+}
+
+/* Education extras */
+.entry-detail {
+  font-size: 0.78rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* ============================================
+   Responsive – Tablet/Mobile
+   ============================================ */
+
+@media screen and (max-width: 768px) {
+  body {
+    background: var(--main-bg);
+  }
+
+  .cv-wrapper {
+    flex-direction: column;
+    margin: 0;
+    max-width: 100%;
+    min-height: unset;
+    box-shadow: none;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-width: unset;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .main-content {
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+/* ============================================
+   Print / PDF Export (@media print)
+   ============================================ */
+
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+
+  html, body {
+    background: white;
+    font-size: 11px;
+  }
+
+  .cv-wrapper {
+    margin: 0;
+    max-width: 100%;
+    width: 21cm;
+    min-height: 29.7cm;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+
+  .sidebar {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: var(--sidebar-bg) !important;
+    color: var(--sidebar-text) !important;
+  }
+
+  .skill-tag {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .tech-badge {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .entry {
+    page-break-inside: avoid;
+  }
+
+  .section-title {
+    page-break-after: avoid;
+  }
+}
