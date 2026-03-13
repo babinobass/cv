@@ -1,52 +1,76 @@
 # CV – Eliezer David Salazar
 
-CV profesional como sitio web estático (HTML/CSS), desplegado en GitHub Pages.
-
-🔗 **Demo en vivo:** https://babinobass.github.io/cv/
+CV profesional de **Eliezer David Salazar**, Front-End Developer Semi Senior, construido como sitio web estático (HTML/CSS puro) listo para desplegarse en **GitHub Pages** y exportarse a **PDF**.
 
 ---
 
-## Visualizar localmente
+## 🌐 Ver el CV en línea
 
-1. Clona o descarga este repositorio.
-2. Abrí el archivo `index.html` directamente en tu navegador (doble clic o arrástralo a la ventana del navegador).
+Una vez desplegado en GitHub Pages, el CV estará disponible en:
 
-No se requiere ningún servidor ni dependencias.
-
----
-
-## Desplegar en GitHub Pages
-
-1. Ve a **Settings** del repositorio en GitHub.
-2. En el menú lateral, hacé clic en **Pages**.
-3. En **Source**, seleccioná **Deploy from a branch**.
-4. Elegí la rama **main** y la carpeta **/ (root)**.
-5. Hacé clic en **Save**.
-
-En unos minutos el CV estará disponible en:
 ```
-https://<tu-usuario>.github.io/<nombre-del-repo>/
+https://babinobass.github.io/cv/
 ```
 
 ---
 
-## Exportar a PDF desde el navegador
+## 💻 Visualizar localmente
 
-1. Abrí el CV en tu navegador (localmente o desde GitHub Pages).
-2. Presioná **Ctrl + P** (Windows/Linux) o **Cmd + P** (Mac) para imprimir.
-3. En el destino de impresión, seleccioná **"Guardar como PDF"**.
-4. Orientación: **Vertical (Portrait)**, tamaño **A4**.
-5. Hacé clic en **Guardar**.
+No se requiere ningún servidor. Simplemente abrí el archivo `index.html` en tu navegador:
 
-El diseño incluye estilos `@media print` optimizados para A4, por lo que el resultado será limpio y profesional.
+```bash
+# Opción 1 – abrir directamente
+open index.html        # macOS
+xdg-open index.html    # Linux
+start index.html       # Windows
+
+# Opción 2 – servidor local con Python (recomendado)
+python3 -m http.server 8000
+# Luego abrí http://localhost:8000 en el navegador
+```
 
 ---
 
-## Estructura del proyecto
+## 🚀 Desplegar en GitHub Pages
+
+1. Ir a **Settings** del repositorio en GitHub.
+2. En el menú lateral, hacer clic en **Pages**.
+3. En **Source**, seleccionar **Deploy from a branch**.
+4. Elegir la rama **`main`** y la carpeta **`/ (root)`**.
+5. Hacer clic en **Save**.
+6. En unos segundos el CV estará disponible en `https://babinobass.github.io/cv/`.
+
+---
+
+## 📄 Exportar a PDF
+
+1. Abrí el CV en el navegador (localmente o desde GitHub Pages).
+2. Presioná **`Ctrl + P`** (Windows/Linux) o **`Cmd + P`** (macOS).
+3. Seleccioná **"Guardar como PDF"** (o "Save as PDF") como destino de impresión.
+4. En **Más configuraciones**, asegurate de:
+   - Tamaño de papel: **A4**
+   - Márgenes: **Ninguno** (None)
+   - Escala: **100 %** (o "Ajustar al área de impresión")
+   - Activar **"Gráficos de fondo"** (Background graphics) para preservar los colores del sidebar.
+5. Hacer clic en **Guardar**.
+
+---
+
+## 🛠️ Estructura del proyecto
 
 ```
-.
-├── index.html   # CV completo (HTML semántico)
-├── styles.css   # Estilos (layout de dos columnas, responsive, print)
+cv/
+├── index.html   # CV completo (estructura HTML)
+├── styles.css   # Estilos del CV (responsive + print)
 └── README.md    # Este archivo
 ```
+
+---
+
+## ✨ Tecnologías utilizadas
+
+- **HTML5** semántico (`lang="es"`, meta tags, ARIA labels)
+- **CSS3** puro — sin JavaScript, sin frameworks
+- **Google Fonts** – Inter
+- **Font Awesome 6** – iconos de contacto
+- `@media print` optimizado para A4

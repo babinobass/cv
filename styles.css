@@ -1,15 +1,34 @@
-/* ============================================================
+/* ============================================
    CV - Eliezer David Salazar
    styles.css
-   ============================================================ */
+   ============================================ */
 
+/* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-/* ---------- Reset & base ---------- */
+/* Reset & Base */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+:root {
+  --sidebar-bg: #2d2d2d;
+  --sidebar-text: #e8e8e8;
+  --sidebar-accent: #a0b4c8;
+  --sidebar-heading: #ffffff;
+  --sidebar-muted: #b0b0b0;
+  --main-bg: #ffffff;
+  --main-text: #2c2c2c;
+  --main-heading: #1a1a1a;
+  --accent: #3a6ea5;
+  --accent-light: #e8f0f8;
+  --border: #e0e0e0;
+  --tag-bg: #eef3f8;
+  --tag-text: #2d5a8e;
+  --font: 'Inter', sans-serif;
+  --sidebar-width: 280px;
 }
 
 html {
@@ -17,74 +36,66 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  color: #1a1a1a;
-  background-color: #e8e8e8;
+  font-family: var(--font);
+  background: #f0f2f5;
+  color: var(--main-text);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+/* ============================================
+   Layout
+   ============================================ */
 
-a:hover {
-  text-decoration: underline;
-}
-
-ul {
-  list-style: none;
-  padding: 0;
-}
-
-/* ---------- Layout wrapper ---------- */
 .cv-wrapper {
-  max-width: 960px;
+  max-width: 21cm;
+  min-height: 29.7cm;
   margin: 2rem auto;
-  background: #fff;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  min-height: 100vh;
+  background: var(--main-bg);
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: row;
 }
 
-/* ---------- SIDEBAR ---------- */
+/* ============================================
+   Sidebar
+   ============================================ */
+
 .sidebar {
-  background-color: #2d2d2d;
-  color: #e8e8e8;
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
   padding: 2.5rem 1.75rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-/* Profile / Name block */
-.sidebar-profile {
+.sidebar-name {
   text-align: center;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  padding-bottom: 1.75rem;
 }
 
-.sidebar-profile h1 {
+.sidebar-name h1 {
   font-size: 1.35rem;
   font-weight: 700;
-  color: #ffffff;
-  letter-spacing: 0.01em;
+  color: var(--sidebar-heading);
   line-height: 1.3;
+  margin-bottom: 0.5rem;
 }
 
-.sidebar-profile .job-title {
+.sidebar-name .job-title {
   font-size: 0.8rem;
   font-weight: 400;
-  color: #b0b0b0;
+  color: var(--sidebar-accent);
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  margin-top: 0.4rem;
+  line-height: 1.4;
 }
 
-/* Sidebar section titles */
+/* Sidebar sections */
 .sidebar-section {
   display: flex;
   flex-direction: column;
@@ -92,17 +103,19 @@ ul {
 }
 
 .sidebar-section h2 {
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #a0a0a0;
-  padding-bottom: 0.4rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  letter-spacing: 0.15em;
+  color: var(--sidebar-accent);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 /* Contact list */
 .contact-list {
+  list-style: none;
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
@@ -112,259 +125,237 @@ ul {
   display: flex;
   align-items: flex-start;
   gap: 0.6rem;
-  font-size: 0.82rem;
-  color: #d0d0d0;
+  font-size: 0.8rem;
+  color: var(--sidebar-text);
   word-break: break-word;
 }
 
 .contact-list li i {
-  color: #8a8a8a;
-  width: 14px;
-  text-align: center;
-  flex-shrink: 0;
+  color: var(--sidebar-accent);
+  font-size: 0.85rem;
   margin-top: 0.15rem;
-  font-size: 0.8rem;
+  min-width: 16px;
+  text-align: center;
 }
 
 .contact-list li a {
-  color: #d0d0d0;
+  color: var(--sidebar-text);
+  text-decoration: none;
+  transition: color 0.2s;
 }
 
 .contact-list li a:hover {
-  color: #ffffff;
+  color: var(--sidebar-accent);
 }
 
 /* Skills */
-.skill-category {
-  margin-bottom: 0.75rem;
+.skills-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
 }
 
-.skill-category h3 {
-  font-size: 0.72rem;
+.skill-category {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.skill-category-label {
+  font-size: 0.7rem;
   font-weight: 600;
-  color: #a0a0a0;
+  color: var(--sidebar-accent);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 0.4rem;
+  letter-spacing: 0.05em;
 }
 
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem;
+  gap: 0.3rem;
 }
 
 .skill-tag {
-  background-color: rgba(255, 255, 255, 0.08);
-  color: #d8d8d8;
-  font-size: 0.72rem;
-  padding: 0.2rem 0.55rem;
+  background: rgba(255,255,255,0.1);
+  color: var(--sidebar-text);
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 3px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  line-height: 1.4;
-}
-
-/* Education (sidebar) */
-.edu-item {
-  margin-bottom: 0.75rem;
-}
-
-.edu-item h3 {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: #e0e0e0;
-  line-height: 1.3;
-}
-
-.edu-item .edu-period {
-  font-size: 0.72rem;
-  color: #888;
-  margin-top: 0.15rem;
-}
-
-.edu-item .edu-detail {
-  font-size: 0.76rem;
-  color: #b0b0b0;
-  margin-top: 0.25rem;
-  line-height: 1.4;
+  border: 1px solid rgba(255,255,255,0.15);
+  white-space: nowrap;
 }
 
 /* Languages */
-.language-item {
+.lang-list {
+  list-style: none;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 0.82rem;
-  color: #d0d0d0;
-  margin-bottom: 0.4rem;
+  flex-direction: column;
+  gap: 0.55rem;
 }
 
-.language-level {
-  font-size: 0.72rem;
-  color: #888;
-  font-style: italic;
+.lang-list li {
+  font-size: 0.8rem;
+  color: var(--sidebar-text);
 }
 
-/* ---------- MAIN CONTENT ---------- */
+.lang-list li span {
+  color: var(--sidebar-muted);
+  font-size: 0.75rem;
+  display: block;
+}
+
+/* ============================================
+   Main Content
+   ============================================ */
+
 .main-content {
+  flex: 1;
   padding: 2.5rem 2.25rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  overflow: hidden;
 }
 
-/* Summary */
-.summary-text {
-  font-size: 0.88rem;
-  color: #444;
-  line-height: 1.75;
-  border-left: 3px solid #2d2d2d;
-  padding-left: 1rem;
-}
-
-/* Section headers (main) */
-.section {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
+/* Section titles */
 .section-title {
   font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
-  color: #2d2d2d;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
   padding-bottom: 0.4rem;
-  border-bottom: 2px solid #2d2d2d;
+  margin-bottom: 1.1rem;
 }
 
-/* Experience / Project items */
-.job-item,
-.project-item {
-  padding-bottom: 1.25rem;
-  border-bottom: 1px solid #ebebeb;
+/* Summary */
+.summary-text {
+  font-size: 0.875rem;
+  color: var(--main-text);
+  line-height: 1.75;
 }
 
-.job-item:last-child,
-.project-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+/* Experience & Education entries */
+.entry {
+  margin-bottom: 1.4rem;
 }
 
-.job-header {
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 0.5rem;
+  margin-bottom: 0.2rem;
   flex-wrap: wrap;
 }
 
-.job-company {
-  font-size: 0.92rem;
+.entry-company {
+  font-size: 0.875rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--main-heading);
 }
 
-.job-period {
+.entry-period {
   font-size: 0.75rem;
   color: #888;
   white-space: nowrap;
-  font-weight: 400;
+  padding-top: 0.1rem;
 }
 
-.job-role {
+.entry-role {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #555;
-  margin-top: 0.15rem;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
+  color: var(--accent);
+  margin-bottom: 0.45rem;
 }
 
-.job-description {
-  margin-top: 0.6rem;
+.entry-list {
+  list-style: none;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
 }
 
-.job-description li {
-  font-size: 0.84rem;
-  color: #444;
+.entry-list li {
+  font-size: 0.8rem;
+  color: var(--main-text);
+  line-height: 1.55;
   padding-left: 1rem;
   position: relative;
-  line-height: 1.55;
 }
 
-.job-description li::before {
-  content: '•';
+.entry-list li::before {
+  content: '▸';
   position: absolute;
   left: 0;
-  color: #888;
+  color: var(--accent);
+  font-size: 0.7rem;
+  top: 0.05em;
 }
 
-/* Project item specifics */
-.project-header {
+/* Tech stack badges for projects */
+.tech-stack {
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
   flex-wrap: wrap;
-  gap: 0.5rem;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
 }
 
-.project-name {
-  font-size: 0.92rem;
-  font-weight: 700;
-  color: #1a1a1a;
+.tech-badge {
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+  border: 1px solid #c8d9ed;
 }
 
-.project-year {
-  font-size: 0.75rem;
-  color: #888;
+/* Education extras */
+.entry-detail {
+  font-size: 0.78rem;
+  color: #666;
+  margin-top: 0.25rem;
 }
 
-.project-tech {
-  margin-top: 0.4rem;
-  font-size: 0.76rem;
-  color: #777;
-  font-style: italic;
-}
+/* ============================================
+   Responsive – Tablet/Mobile
+   ============================================ */
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 680px) {
+@media screen and (max-width: 768px) {
   body {
-    background-color: #fff;
+    background: var(--main-bg);
   }
 
   .cv-wrapper {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     margin: 0;
+    max-width: 100%;
+    min-height: unset;
     box-shadow: none;
   }
 
   .sidebar {
-    padding: 2rem 1.5rem;
-  }
-
-  .sidebar-profile {
-    text-align: left;
+    width: 100%;
+    min-width: unset;
+    padding: 1.75rem 1.25rem;
   }
 
   .main-content {
-    padding: 2rem 1.5rem;
-  }
-
-  .job-header {
-    flex-direction: column;
-  }
-
-  .job-period {
-    white-space: normal;
+    padding: 1.75rem 1.25rem;
   }
 }
 
-/* ---------- PRINT / PDF ---------- */
+/* ============================================
+   Print / PDF Export (@media print)
+   ============================================ */
+
 @media print {
   @page {
     size: A4;
@@ -372,47 +363,45 @@ ul {
   }
 
   html, body {
-    background: #fff;
-    font-size: 9pt;
+    background: white;
+    font-size: 11px;
   }
 
-  body {
+  .cv-wrapper {
+    margin: 0;
+    max-width: 100%;
+    width: 21cm;
+    min-height: 29.7cm;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+
+  .sidebar {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: var(--sidebar-bg) !important;
+    color: var(--sidebar-text) !important;
+  }
+
+  .skill-tag {
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
 
-  .cv-wrapper {
-    max-width: 100%;
-    margin: 0;
-    box-shadow: none;
-    min-height: auto;
-    grid-template-columns: 220px 1fr;
-  }
-
-  .sidebar {
-    padding: 1.5rem 1.25rem;
-    gap: 1.5rem;
-  }
-
-  .sidebar-profile h1 {
-    font-size: 1.1rem;
-  }
-
-  .main-content {
-    padding: 1.5rem 1.75rem;
-    gap: 1.5rem;
-  }
-
-  .summary-text {
-    font-size: 8.5pt;
-  }
-
-  .job-item,
-  .project-item {
-    page-break-inside: avoid;
+  .tech-badge {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
   a {
     text-decoration: none;
+  }
+
+  .entry {
+    page-break-inside: avoid;
+  }
+
+  .section-title {
+    page-break-after: avoid;
   }
 }
